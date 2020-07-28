@@ -46,15 +46,18 @@ class SettingsComponent extends PureComponent {
 
    this.initTheme();
 
-    let ostUserId = this.props.ostUserId;
-    let delegate = this.props.ostWalletUIWorkflowCallback;
+    // let ostUserId = this.props.ostUserId;
+    // let delegate = this.props.ostWalletUIWorkflowCallback;
+
+    let ostUserId = this.props.route.params.ostUserId;
+    let delegate = this.props.route.params.ostWalletUIWorkflowCallback;
 
     /// If using react-navigation.
-    let navigation = this.props.navigation;
-    if ( navigation && navigation.getParam ) {
-      ostUserId = ostUserId || navigation.getParam("ostUserId");
-      delegate  = delegate || navigation.getParam("ostWalletUIWorkflowCallback");
-    }
+    // let navigation = this.props.navigation;
+    // if ( navigation && navigation.getParam ) {
+    //   ostUserId = ostUserId || navigation.getParam("ostUserId");
+    //   delegate  = delegate || navigation.getParam("ostWalletUIWorkflowCallback");
+    // }
 
     this.controller = new WalletSettingsController(ostUserId, delegate);
   }
